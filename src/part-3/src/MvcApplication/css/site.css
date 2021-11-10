@@ -1,0 +1,19 @@
+﻿form { margin: 0; }
+
+body {
+    position: relative;
+    padding-top: 60px; /* Place the container beneath the bottom of the navbar */
+}﻿
+
+select.input-validation-error,
+input.input-validation-error {
+    border-color: #FF0000;
+    border-radius: 7px;
+}
+
+select.input-validation-error:focus,
+input.input-validation-error:focus { 
+    outline: none;
+    border-color: #FF0000;
+    box-shadow: 0 0 10px #FF0000;
+}

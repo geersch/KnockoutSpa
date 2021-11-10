@@ -1,0 +1,46 @@
+﻿﻿<!DOCTYPE html> @*HTML5 doctype to support bootstrap HTML element and CSS properties*@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Single-page Application (SPA)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> @*Responsive design*@
+    <link href="@Url.Content("~/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/bootstrap-responsive.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/js/jquery-1.8.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/knockout-2.1.0.js")" type="text/javascript"></script>
+</head>
+    <body>
+        @{
+            var url = Request.Url.ToString().ToLower();
+            var page = url.Substring(url.LastIndexOf("/") + 1);
+        }
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#">Euricom</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="@(page == "" ? "active" : "")"><a href="@Url.Action("Index", "Home")">Timesheets</a></li>
+                            <li class="@(page == "about" ? "active" : "")"><a href="@Url.Action("About", "Home")">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            @RenderBody()    
+        </div>
+        
+        <script src="@Url.Content("~/js/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/js/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/js/bootstrap.min.js")" type="text/javascript"></script>
+    </body>
+</html>

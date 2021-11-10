@@ -1,0 +1,11 @@
+﻿﻿@model MvcApplication.Models.Timesheet
+
+@Html.LabelFor(m => m.FirstName)
+@Html.TextBoxFor(m => m.FirstName)
+@Html.LabelFor(m => m.LastName)
+@Html.TextBoxFor(m => m.LastName)
+
+@Html.LabelFor(m => m.Month)
+@Html.DropDownListFor(m => m.Month, Model.Months)
+@Html.LabelFor(m => m.Year)
+@Html.TextBoxFor(m => m.Year, new { disabled="disabled" })
